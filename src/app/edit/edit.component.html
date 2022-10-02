@@ -29,7 +29,7 @@
                                     <div class="fs-1 fw-700 .bold-Segoe float-right">Asset Code</div>
                                 </div>
                                 <div class="col-5">
-                                    <p id="assetCode">Asset Code</p>
+                                    <p id="assetCode">{{data.asset_code}}</p>
                                 </div>
                             </div>
                             <div class="row col-12 mt-5">
@@ -50,7 +50,7 @@
                                     <div class="fs-1 fw-700 .bold-Segoe float-right">model</div>
                                 </div>
                                 <div class="col-5">
-                                    <input type="text"  class="form-control" placeholder="Username">
+                                    <input type="text"  class="form-control" placeholder="{{data.model}}">
                                 </div>
                             </div>
                             <div class="row col-12 mt-5">
@@ -58,7 +58,7 @@
                                     <div class="fs-1 fw-700 .bold-Segoe float-right">Serial No</div>
                                 </div>
                                 <div class="col-5">
-                                    <input type="text"  class="form-control" placeholder="Username">
+                                    <input type="text"  class="form-control" placeholder="{{data.serial}}">
                                 </div>
                             </div>
                             <div class="row col-12 mt-5">
@@ -66,7 +66,7 @@
                                     <div class="fs-1 fw-700 .bold-Segoe float-right">Purchase Date</div>
                                 </div>
                                 <div class="col-5">
-                                    <input type="text"  class="form-control" placeholder="Username">
+                                    <input type="text"  class="form-control" placeholder="{{data.purchae_date}}">
                                 </div>
                             </div>
                             <div class="row col-12 mt-5">
@@ -74,7 +74,7 @@
                                     <div class="fs-1 fw-700 .bold-Segoe float-right">Waranty Period</div>
                                 </div>
                                 <div class="col-5">
-                                    <input type="text"  class="form-control" placeholder="Username">
+                                    <input type="text"  class="form-control" disabled placeholder="{{data.waranty}}">
                                 </div>
                             </div>
                             <div class="row col-12 mt-5">
@@ -82,7 +82,7 @@
                                     <div class="fs-1 fw-700 .bold-Segoe float-right">Waranty Remians</div>
                                 </div>
                                 <div class="col-5">
-                                    <p>Warranty Remians</p>
+                                    <p>{{remain_y}} y {{remain_m}} m</p>
                                 </div>
                             </div>
                             <div class="row col-12 mt-5">
@@ -102,7 +102,7 @@
                                     <div class="fs-1 fw-700 .bold-Segoe float-right">Update Date</div>
                                 </div>
                                 <div class="col-5">
-                                    <p>Update Date</p>
+                                    <p>{{today}}</p>
                                 </div>
                             </div>
                             <div class="row col-12 mt-5 justify-content-center">

@@ -18,6 +18,6 @@ export class NewComponent implements OnInit {
   }
 
   onClickNew(): void{
-    this.router.navigate(['edit'])
+    this.router.navigate([''])
   }
 }

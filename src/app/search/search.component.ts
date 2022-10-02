@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
       status:"active",
       waranty:3,
       asset_code:"202209001",
-      purchae_date: "2022-02-09T17:00:00.000+00:00",
+      purchae_date: "2022-09-09T17:00:00.000+00:00",
       remark:""
     },{
       brand:"Dell2",
@@ -42,6 +42,10 @@ export class SearchComponent implements OnInit {
   }
 
   onClickNew(): void{
-    this.router.navigate(['edit'])
+    this.router.navigate([''])
+  }
+
+  onClickEdit(notebook: Notebook): void{
+    this.router.navigate(['edit'],{state:notebook})
   }
 }
