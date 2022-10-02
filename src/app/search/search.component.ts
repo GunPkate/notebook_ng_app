@@ -1,5 +1,6 @@
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { Notebook } from '../models/models';
 
 @Component({
   selector: 'app-search',
@@ -9,6 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class SearchComponent implements OnInit {
 
   constructor(private router:Router) { }
+
+  notebook: Notebook | undefined
 
   ngOnInit(): void {
   }
