@@ -3,7 +3,7 @@ export interface Notebook{
     model:string,
     serial:string,
     status:string,
-    waranty:string,
+    waranty:number,
     asset_code:string,
     purchae_date:string,
     remark:string,

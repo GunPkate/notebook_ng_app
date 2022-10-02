@@ -57,25 +57,31 @@
                         </div>
                     </div>
                     
-                    <div class="row col-10 text-center mt-5">
+                    <div class="row col-12 text-center mt-5 mx-2 ">
                         <div class="col-2">Asset Code</div>
-                        <div class="col-2">Brand</div>
-                        <div class="col-2">Model</div>
+                        <div class="col-1">Brand</div>
+                        <div class="col-1">Model</div>
                         <div class="col-2">Serial No</div>
-                        <div class="col-2">Status</div>
-                        <div class="col-2">Warranty Remains</div>
+                        <div class="col-1">Status</div>
+                        <div class="col-1">Warranty Remains</div>
+                        <div class="col-2"></div>
                     </div>
-                    <div class="row col-10 text-center">
-                        <ol>
-                            <li ng-repeat="asset in assets"></li>
-                            <!-- <div class="col-2">{{asset.AssetCode}}</div>
-                            <div class="col-2">{{asset.Brand}}</div>
-                            <div class="col-2">{{asset.Model}}</div>
-                            <div class="col-2">{{asset.SerialNo}}</div>
-                            <div class="col-2">{{asset.Status}}</div>
-                            <div class="col-2">{{asset.WarantyRemains}}</div> -->
-                        </ol>
-                    </div>
+
+                        
+                    <li class="row col-12 text-center align-content-between mt-2" *ngFor="let notebook of notebooks">
+                        <div class="col-2">{{notebook.asset_code}}</div>
+                        <div class="col-1">{{notebook.brand}}</div>
+                        <div class="col-1">{{notebook.model}}</div>
+                        <div class="col-2">{{notebook.serial}}</div>
+                        <div class="col-1">{{notebook.status}}</div>
+                        <div class="col-1">{{notebook.waranty}}</div>
+                        <div class="col-2 justify-content-between">
+                            <button>edit</button>
+                            <button>delete</button>
+                        </div>
+                    </li>
+                        
+
                         
                     
 
