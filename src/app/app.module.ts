@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { SearchComponent } from './search/search.component';
 import { EditComponent } from './edit/edit.component';
 import { NewComponent } from './new/new.component';
+import { NotebooksService } from './services/notebooks.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { NewComponent } from './new/new.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [NotebooksService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
