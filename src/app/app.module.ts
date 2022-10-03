@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -17,9 +18,10 @@ import { NotebooksService } from './services/notebooks.service';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [NotebooksService],
+  providers: [NotebooksService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,11 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SearchComponent implements OnInit {
 
-  notebooks: Notebook[] | undefined 
-  constructor(private router:Router, private service:NotebooksService) { this.notebooks = service.initMockData()}
+  notebooks: Notebook[] = []
+  constructor(private router:Router, private service:NotebooksService) { }
 
-  name : string = "Dell"
+
   ngOnInit(): void {
+    // this.notebooks = this.service.initMockData()
+    try {
+      this.service.getAllNotebook().subscribe((data)=>{
+        console.log(data)
+        if(data.resultCode == 20000){
+          console.log("Success")
+          for (const asset_data of data.resultData){
+            this.notebooks.push(asset_data)
+          }
+        }
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   onClickSearch(): void {

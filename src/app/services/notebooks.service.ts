@@ -1,5 +1,7 @@
+import { RequestNotebook } from './../models/models';
 import { Notebook } from '../models/models';
 import { Injectable } from '@angular/core';
+import  { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -9,8 +11,11 @@ export class NotebooksService {
 
   notebook: Notebook[] | undefined;
 
-  constructor() {
-    this.notebook = this.initMockData();
+  constructor(private http:HttpClient) {
+    // this.notebook = this.initMockData();
+  }
+  getAllNotebook(): Observable<RequestNotebook>{
+    return this.http.get<RequestNotebook>('http://localhost:300/assets/notebook/getall')
   }
 
   initMockData(): Notebook[]{
