@@ -47,16 +47,22 @@
                                     <div class="col-4 text-right">Purchase Date</div>
                                     <div class="col-8 mt-1">
                                         <!-- <input type="text" class="form-control p-2"   name = "mobile" [(ngModel)] = registerData.mobile required [ngClass]="{'error': isSubmitted&&registrationForm.controls['mobile'].invalid }"> -->
-                                        <input type="text" class="form-control p-2"   name = "purchase_date" [(ngModel)] = registerData.purchase_date required [ngClass]="{'error': isSubmitted&&registrationForm.controls['purchase_date'].invalid }">
+                                        <input type="date" class="form-control p-2"   name = "purchase_date" [(ngModel)] = registerData.purchase_date required [ngClass]="{'error': isSubmitted&&registrationForm.controls['purchase_date'].invalid }">
                                     </div>
                                     <div class="col-4 text-right">Warranty Start</div>
                                     <div class="col-8 mt-1">
-                                        
+                                        <input type="date" class="form-control p-2"   name = "purchase_date" [(ngModel)] = registerData.purchase_date required [ngClass]="{'error': isSubmitted&&registrationForm.controls['purchase_date'].invalid }">
                                     </div>
                                     <div class="col-4 text-right">Warranty Period</div>
                                     <div class="col-8 mt-1">
                                         <!-- <input type="text" class="form-control p-2"   name = "mobile" [(ngModel)] = registerData.mobile required [ngClass]="{'error': isSubmitted&&registrationForm.controls['mobile'].invalid }"> -->
-                                        <input type="text" class="form-control p-2"   name = "waranty" [(ngModel)] = registerData.waranty required [ngClass]="{'error': isSubmitted&&registrationForm.controls['waranty'].invalid }">
+                                        <select type="text" class="form-control p-2"   name = "waranty" [(ngModel)] = registerData.waranty required [ngClass]="{'error': isSubmitted&&registrationForm.controls['waranty'].invalid }">
+                                            <option value="1">1 Year</option>
+                                            <option value="2">2 Year</option>
+                                            <option value="3">3 Year</option>
+                                            <option value="4">4 Year</option>
+                                            <option value="5">5 Year</option>
+                                        </select>
                                     </div>
                                     <div class="col-4 text-right">Warranty Remains</div>
                                     <div class="col-8 mt-1">
@@ -64,14 +70,12 @@
                                     </div>
                                     <div class="col-4 text-right">Status</div>
                                     <div class="col-8 mt-1">
-                                        <input type="text" class="form-control p-2"   name = "status" [(ngModel)] = registerData.status required [ngClass]="{'error': isSubmitted&&registrationForm.controls['Status'].invalid }">
+                                        <select type="text" class="form-control p-2"   name = "status" [(ngModel)] = registerData.status required [ngClass]="{'error': isSubmitted&&registrationForm.controls['Status'].invalid }">
+                                            <option value="1">Active</option>
+                                            <option value="0">Inactive</option>
+                                        </select>    
                                     </div>
 
-                                
-                               
-                                
-
-                                
                                 </div>
                                 <div class="row col-12 mt-5 justify-content-center">
                                     <button type="submit" class="fs-1 fw-700 .bold-Segoe mx-3">Save</button>

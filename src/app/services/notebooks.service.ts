@@ -20,13 +20,13 @@ export class NotebooksService {
 
   updateNotebook(registerData:any): Observable<RequestNotebook>{
     const body = {
-        // asset_code: registerData.asset_code,
-        // brand:   registerData.brand,
-        // model:   registerData.model,
-        // serial:  registerData.serial,
-        // status:  registerData.status,
-        // waranty: registerData.waranty,
-        // remark:  registerData.remark,
+        asset_code: registerData.asset_code,
+        brand:   registerData.brand,
+        model:   registerData.model,
+        serial:  registerData.serial,
+        status:  registerData.status,
+        warranty: registerData.warranty,
+        remark:  registerData.remark,
     }
     return this.http.put<RequestNotebook>('http://localhost:300/assets/notebook/update',body)
   }
@@ -38,18 +38,18 @@ export class NotebooksService {
         model:"Inspiron 3515",
         serial:"sn039456",
         status:"active",
-        waranty:3,
+        warranty:3,
         asset_code:"202209001",
-        purchae_date: "2022-09-09T17:00:00.000+00:00",
+        purchase_date: "2022-09-09T17:00:00.000+00:00",
         remark:""
       },{
         brand:"Dell2",
         model:"Inspiron 3515",
         serial:"sn039456",
         status:"active",
-        waranty:3,
+        warranty:3,
         asset_code:"202209001",
-        purchae_date: "2022-02-09T17:00:00.000+00:00",
+        purchase_date: "2022-02-09T17:00:00.000+00:00",
         remark:""
       }
     ]

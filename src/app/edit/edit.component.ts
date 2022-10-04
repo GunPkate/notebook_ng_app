@@ -30,9 +30,13 @@ export class EditComponent implements OnInit {
   constructor(private router:Router,private service:NotebooksService) { 
     const nav = this.router.getCurrentNavigation()
     
-    console.log(nav)
-    this.notebook_data = nav?.extras.state; //data binding at html
-    this.calWarrant(this.notebook_data.purchase_date,this.notebook_data.waranty)
+      console.log(nav)
+      console.log(nav==undefined)
+      console.log(nav)
+      this.notebook_data = nav?.extras.state; //data binding at html
+      if(this.notebook_data !==undefined||null){
+      this.calWarrant(this.notebook_data.purchase_date,this.notebook_data.waranty)
+      }
   }
 
   ngOnInit(): void { 
@@ -72,18 +76,19 @@ export class EditComponent implements OnInit {
 
   ngSubmit(registrationForm: NgForm) : void{
     this.isSubmitted = true;
- 
-    if(registrationForm.invalid) {
-      alert('Register fail');
-      return 
-    }
-    else {
-      this.service.updateNotebook(this.registerData).subscribe(data=>{
-        if(data.resultCode !== 40900){
-          alert('Register Success');
-        }
-        console.log(data)
-      })
-    }
+    console.log(registrationForm)
+    console.log(this.registerData )
+    // if(registrationForm.invalid) {
+    //   alert('Register fail');
+    //   return 
+    // }
+    // else {
+    //   this.service.updateNotebook(this.registerData).subscribe(data=>{
+    //     if(data.resultCode !== 40900){
+    //       alert('Register Success');
+    //     }
+    //     console.log(data)
+    //   })
+    // }
   }
 }
