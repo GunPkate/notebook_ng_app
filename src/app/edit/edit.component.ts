@@ -19,6 +19,7 @@ export class EditComponent implements OnInit {
     serial:  '',
     status:  '',
     purchase_date: '',
+    warranty_date: '',
     waranty: '',
     remark:  '',
   }  
@@ -47,6 +48,7 @@ export class EditComponent implements OnInit {
       serial:  this.notebook_data.serial,
       status:  this.notebook_data.status,
       purchase_date: this.notebook_data.purchase_date,
+      warranty_date: this.notebook_data.warranty_date,
       waranty: this.notebook_data.waranty,
       remark:  this.notebook_data.remark,
     } 
@@ -78,17 +80,17 @@ export class EditComponent implements OnInit {
     this.isSubmitted = true;
     console.log(registrationForm)
     console.log(this.registerData )
-    // if(registrationForm.invalid) {
-    //   alert('Register fail');
-    //   return 
-    // }
-    // else {
-    //   this.service.updateNotebook(this.registerData).subscribe(data=>{
-    //     if(data.resultCode !== 40900){
-    //       alert('Register Success');
-    //     }
-    //     console.log(data)
-    //   })
-    // }
+    if(registrationForm.invalid) {
+      alert('Register fail');
+      return 
+    }
+    else {
+      this.service.updateNotebook(this.registerData).subscribe(data=>{
+        if(data.resultCode !== 40900){
+          alert('Register Success');
+        }
+        console.log(data)
+      })
+    }
   }
 }

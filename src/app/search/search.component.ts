@@ -42,4 +42,8 @@ export class SearchComponent implements OnInit {
   onClickEdit(notebook: Notebook): void{
     this.router.navigate(['edit'],{state:notebook})
   }
+
+  onClickDelete(selected: string): void{
+    this.service.deleteNotebook(selected);
+  }
 }

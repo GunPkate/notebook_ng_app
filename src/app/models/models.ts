@@ -1,10 +1,11 @@
 export interface Notebook{
+    asset_code:string,
     brand:string,
     model:string,
     serial:string,
     status:string,
     warranty:number,
-    asset_code:string,
+    warranty_date:string,
     purchase_date:string,
     remark:string,
 }
@@ -19,7 +20,7 @@ export interface RequestNotebook{
         status:string,
         warranty:number,
         asset_code:string,
-        warrant_date:string,
+        warranty_date:string,
         purchase_date:string,
         remark:string,}[]
 }

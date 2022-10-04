@@ -77,7 +77,7 @@
                         <div class="col-1">{{notebook.warranty}}</div>
                         <div class="col-2 justify-content-between">
                             <button (click)="onClickEdit(notebook)">edit</button>
-                            <button>delete</button>
+                            <button (click)="onClickDelete(notebook.asset_code)">delete</button>
                         </div>
                     </li>
                         

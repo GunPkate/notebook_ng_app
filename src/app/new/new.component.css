@@ -2,6 +2,10 @@ html, body {
     height: 100%;
   }
   
+  .error{
+    border-color: red;
+  }
+  
   .navbar{
     color: white !important;
     background-color: #1a5444;
