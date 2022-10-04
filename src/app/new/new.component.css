@@ -1,7 +1,19 @@
 html, body {
     height: 100%;
+    font-size: 1.6rem;
   }
   
+  .fs-2{
+    font-size: 2rem;
+    font-weight: bold;
+    color: aliceblue;
+  }
+
+  .button{
+    height: 50px;
+    border-radius: 20px;
+  }
+
   .error{
     border-color: red;
   }

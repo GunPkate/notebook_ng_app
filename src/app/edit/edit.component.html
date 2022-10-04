@@ -7,13 +7,13 @@
 <body>
     <div>
         <nav class="navbar navbar-expand-sm navbar-dark">
-            <div class="fs-2 fw-700 .bold-Segoe float-left ">Asset Management</div>
+            <div class="fs-2 float-left ">Asset Management</div>
         </nav>
     </div>
     <div class="container-fluid px-0">
         <div class="row align-self-center">
-            <div class="col-2 navbar-custom"  ng-controller="slide-cltr" ng-init="onInit()">
-                <div class="mx-2 mt-2" (click)="onClickNew()">News</div>
+            <div class="col-2 navbar-custom fs-2"  ng-controller="slide-cltr" ng-init="onInit()">
+                <div class="mx-2 mt-2" (click)="onClickNew()">New</div>
                 <div class="mx-2 mt-2" (click)="onClickSearch()">Search</div>
             </div>
             <div class="col-10">
@@ -28,7 +28,7 @@
                  
                             <form (ngSubmit)="ngSubmit(registrationForm)" #registrationForm="ngForm" >
                                 <div class="row col-10 justify-content-center">
-                                    <div class="col-4 text-center">Asset Code</div>
+                                    <div class="col-4 text-right">Asset Code</div>
                                     <div class="col-8 mt-1">
                                         <input type="text" class="form-control p-2" disabled  name = "asset_code" [(ngModel)] = registerData.asset_code required [ngClass]="{'error': isSubmitted&&registrationForm.controls['asset_code'].invalid }">
                                     </div>
@@ -46,7 +46,6 @@
                                     </div>
                                     <div class="col-4 text-right">Purchase Date</div>
                                     <div class="col-8 mt-1">
-                                        <!-- <input type="text" class="form-control p-2"   name = "mobile" [(ngModel)] = registerData.mobile required [ngClass]="{'error': isSubmitted&&registrationForm.controls['mobile'].invalid }"> -->
                                         <input type="text" class="form-control p-2"   name = "purchase_date" [(ngModel)] = registerData.purchase_date required [ngClass]="{'error': isSubmitted&&registrationForm.controls['purchase_date'].invalid }">
                                     </div>
                                     <div class="col-4 text-right">Warranty Start</div>
@@ -55,7 +54,6 @@
                                     </div>
                                     <div class="col-4 text-right">Warranty Period</div>
                                     <div class="col-8 mt-1">
-                                        <!-- <input type="text" class="form-control p-2"   name = "mobile" [(ngModel)] = registerData.mobile required [ngClass]="{'error': isSubmitted&&registrationForm.controls['mobile'].invalid }"> -->
                                         <select type="text" class="form-control p-2"   name = "warranty" [(ngModel)] = registerData.warranty required [ngClass]="{'error': isSubmitted&&registrationForm.controls['warranty'].invalid }">
                                             <option value="1">1 Year</option>
                                             <option value="2">2 Year</option>
@@ -78,8 +76,7 @@
 
                                 </div>
                                 <div class="row col-12 mt-5 justify-content-center">
-                                    <button type="submit" class="fs-1 fw-700 .bold-Segoe mx-3">Save</button>
-                                    <button class="fs-1 fw-700 .bold-Segoe mx-3">cancle</button>
+                                    <button type="submit" class="col-5 btn-primary button">Update</button>
                                 </div>
                             </form>
                        

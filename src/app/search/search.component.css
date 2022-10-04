@@ -1,7 +1,22 @@
 html, body {
     height: 100%;
+    font-size: 1.6rem;
+  }
+
+  .fs-2{
+    font-size: 2rem;
+    font-weight: bold;
+    color: aliceblue;
   }
   
+  .button{
+    height: 50px;
+    border-radius: 20px;
+  }
+
+  .sm-btn{
+    border-radius: 10px;
+  }
   .navbar{
     color: white !important;
     background-color: #1a5444;
