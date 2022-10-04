@@ -20,7 +20,7 @@ export class EditComponent implements OnInit {
     status:  '',
     purchase_date: '',
     warranty_date: '',
-    waranty: '',
+    warranty: '',
     remark:  '',
   }  
   remain_m: number|0 = 0
@@ -36,7 +36,7 @@ export class EditComponent implements OnInit {
       console.log(nav)
       this.notebook_data = nav?.extras.state; //data binding at html
       if(this.notebook_data !==undefined||null){
-      this.calWarrant(this.notebook_data.purchase_date,this.notebook_data.waranty)
+      this.calWarrant(this.notebook_data.purchase_date,this.notebook_data.warranty)
       }
   }
 
@@ -49,22 +49,22 @@ export class EditComponent implements OnInit {
       status:  this.notebook_data.status,
       purchase_date: this.notebook_data.purchase_date,
       warranty_date: this.notebook_data.warranty_date,
-      waranty: this.notebook_data.waranty,
+      warranty: this.notebook_data.warranty,
       remark:  this.notebook_data.remark,
     } 
     
     console.log(this.registerData,"form")
   }
 
-  calWarrant(purchase_date:string,waranty:Number){
+  calWarrant(purchase_date:string,warranty:Number){
     const war_date = Date.parse(purchase_date)
     const pass_day = Math.floor((Date.now()-war_date)/ (1000*60*60*24))
-    const warant = (+waranty)*365
+    const warrant = (+warranty)*365
     console.log(Date.now())
     console.log(war_date)
-    this.remain_y = Math.floor((warant-pass_day)/365);
-    this.remain_m = Math.floor(((warant-pass_day)%365)/365*12);
-    console.log(warant-pass_day)
+    this.remain_y = Math.floor((warrant-pass_day)/365);
+    this.remain_m = Math.floor(((warrant-pass_day)%365)/365*12);
+    console.log(warrant-pass_day)
     console.log(this.remain_y,this.remain_m,)
   }
 

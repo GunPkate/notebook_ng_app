@@ -37,18 +37,17 @@ export class NewComponent implements OnInit {
 
   ngSubmit(registrationForm:NgForm){
     console.log(this.registerData)
+    console.log(this.registerData.purchase_date)
     if(registrationForm.valid){
       this.isSubmitted = true
       alert("success")
       this.service.createNotebook(this.registerData).subscribe(data=>{
         if(data.resultCode !== 40900){
-          alert("success");
           console.log("data")
         }
       })
     }else{
       alert("fail")
     }
-    
   }
 }
