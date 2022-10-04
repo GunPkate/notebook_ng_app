@@ -18,6 +18,19 @@ export class NotebooksService {
     return this.http.get<RequestNotebook>('http://localhost:300/assets/notebook/getall')
   }
 
+  updateNotebook(registerData:any): Observable<RequestNotebook>{
+    const body = {
+        // asset_code: registerData.asset_code,
+        // brand:   registerData.brand,
+        // model:   registerData.model,
+        // serial:  registerData.serial,
+        // status:  registerData.status,
+        // waranty: registerData.waranty,
+        // remark:  registerData.remark,
+    }
+    return this.http.put<RequestNotebook>('http://localhost:300/assets/notebook/update',body)
+  }
+
   initMockData(): Notebook[]{
     return [
       {

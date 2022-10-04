@@ -1,6 +1,8 @@
+import { NotebooksService } from './../services/notebooks.service';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Notebook } from '../models/models';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-edit',
@@ -9,28 +11,55 @@ import { Notebook } from '../models/models';
 })
 export class EditComponent implements OnInit {
 
-  data: any
+  notebook_data: any
+  registerData =  {
+    asset_code: '',
+    brand:   '',
+    model:   '',
+    serial:  '',
+    status:  '',
+    purchase_date: '',
+    waranty: '',
+    remark:  '',
+  }  
   remain_m: number|0 = 0
   remain_y: number|0 = 0
   today: Date = new Date(Date.now()) 
+  isSubmitted: boolean = false 
 
-  constructor(private router:Router) { 
+  constructor(private router:Router,private service:NotebooksService) { 
     const nav = this.router.getCurrentNavigation()
+    
     console.log(nav)
-    this.data = nav?.extras.state;
+    this.notebook_data = nav?.extras.state; //data binding at html
+    this.calWarrant(this.notebook_data.purchase_date,this.notebook_data.waranty)
   }
 
-  ngOnInit(): void {
-    console.log(this.data)
-    const war_date = Date.parse(this.data.purchae_date)
+  ngOnInit(): void { 
+    this.registerData =  {
+      asset_code: this.notebook_data.asset_code,
+      brand:   this.notebook_data.brand,
+      model:   this.notebook_data.model,
+      serial:  this.notebook_data.serial,
+      status:  this.notebook_data.status,
+      purchase_date: this.notebook_data.purchase_date,
+      waranty: this.notebook_data.waranty,
+      remark:  this.notebook_data.remark,
+    } 
+    
+    console.log(this.registerData,"form")
+  }
+
+  calWarrant(purchase_date:string,waranty:Number){
+    const war_date = Date.parse(purchase_date)
     const pass_day = Math.floor((Date.now()-war_date)/ (1000*60*60*24))
-    const warant = +(this.data.waranty)*365
-    // console.log(Date.now())
-    // console.log(war_date)
+    const warant = (+waranty)*365
+    console.log(Date.now())
+    console.log(war_date)
     this.remain_y = Math.floor((warant-pass_day)/365);
     this.remain_m = Math.floor(((warant-pass_day)%365)/365*12);
-  //   console.log(warant-pass_day)
-  //   console.log(this.remain_m,this.remain_d,)
+    console.log(warant-pass_day)
+    console.log(this.remain_y,this.remain_m,)
   }
 
   onClickSearch(): void {
@@ -39,5 +68,22 @@ export class EditComponent implements OnInit {
 
   onClickNew(): void{
     this.router.navigate([''])
+  }
+
+  ngSubmit(registrationForm: NgForm) : void{
+    this.isSubmitted = true;
+ 
+    if(registrationForm.invalid) {
+      alert('Register fail');
+      return 
+    }
+    else {
+      this.service.updateNotebook(this.registerData).subscribe(data=>{
+        if(data.resultCode !== 40900){
+          alert('Register Success');
+        }
+        console.log(data)
+      })
+    }
   }
 }

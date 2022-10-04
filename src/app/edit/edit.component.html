@@ -12,111 +12,79 @@
     </div>
     <div class="container-fluid px-0">
         <div class="row align-self-center">
-            <div class="col-lg-2 navbar-custom"  ng-controller="slide-cltr" ng-init="onInit()">
+            <div class="col-2 navbar-custom"  ng-controller="slide-cltr" ng-init="onInit()">
                 <div class="mx-2 mt-2" (click)="onClickNew()">News</div>
                 <div class="mx-2 mt-2" (click)="onClickSearch()">Search</div>
             </div>
-            <div class="col-lg-10">
+            <div class="col-10">
                 <div class="row justify-content-center">   
 
                     <div class="col-12">
                         <div class="row">
                             <div class="col-12 text-center Welcome">
-                                <div class="fs-2 fw-700 .bold-Segoe float-left ">Edit Asset</div>
+                                <div class="float-left ">Edit Asset</div>
                             </div>
-                            <div class="row col-12 mt-5">
-                                <div class="col-5">
-                                    <div class="fs-1 fw-700 .bold-Segoe float-right">Asset Code</div>
+                        </div>
+                 
+                            <form (ngSubmit)="ngSubmit(registrationForm)" #registrationForm="ngForm" >
+                                <div class="row col-10 justify-content-center">
+                                    <div class="col-4 text-right">Asset Code</div>
+                                    <div class="col-8 mt-1">
+                                        <input type="text" class="form-control p-2" disabled  name = "asset_code" [(ngModel)] = registerData.asset_code required [ngClass]="{'error': isSubmitted&&registrationForm.controls['asset_code'].invalid }">
+                                    </div>
+                                    <div class="col-4 text-right">Brand</div>
+                                    <div class="col-8 mt-1">
+                                        <input type="text" class="form-control p-2" name = "brand" [(ngModel)] = registerData.brand required [ngClass]="{'error': isSubmitted&&registrationForm.controls['brand'].invalid }">
+                                    </div>
+                                    <div class="col-4 text-right">Model</div>
+                                    <div class="col-8 mt-1">
+                                        <input type="text" class="form-control p-2"   name = "model" [(ngModel)] = registerData.model required [ngClass]="{'error': isSubmitted&&registrationForm.controls['model'].invalid }">
+                                    </div>
+                                    <div class="col-4 text-right">Serial No</div>
+                                    <div class="col-8 mt-1">
+                                        <input type="text" class="form-control p-2" name = "serial" [(ngModel)] = registerData.serial required [ngClass]="{'error': isSubmitted&&registrationForm.controls['serial'].invalid }">   
+                                    </div>
+                                    <div class="col-4 text-right">Purchase Date</div>
+                                    <div class="col-8 mt-1">
+                                        <!-- <input type="text" class="form-control p-2"   name = "mobile" [(ngModel)] = registerData.mobile required [ngClass]="{'error': isSubmitted&&registrationForm.controls['mobile'].invalid }"> -->
+                                        <input type="text" class="form-control p-2"   name = "purchase_date" [(ngModel)] = registerData.purchase_date required [ngClass]="{'error': isSubmitted&&registrationForm.controls['purchase_date'].invalid }">
+                                    </div>
+                                    <div class="col-4 text-right">Warranty Start</div>
+                                    <div class="col-8 mt-1">
+                                        
+                                    </div>
+                                    <div class="col-4 text-right">Warranty Period</div>
+                                    <div class="col-8 mt-1">
+                                        <!-- <input type="text" class="form-control p-2"   name = "mobile" [(ngModel)] = registerData.mobile required [ngClass]="{'error': isSubmitted&&registrationForm.controls['mobile'].invalid }"> -->
+                                        <input type="text" class="form-control p-2"   name = "waranty" [(ngModel)] = registerData.waranty required [ngClass]="{'error': isSubmitted&&registrationForm.controls['waranty'].invalid }">
+                                    </div>
+                                    <div class="col-4 text-right">Warranty Remains</div>
+                                    <div class="col-8 mt-1">
+                                        <p>{{remain_y}} y {{remain_m}} m</p>
+                                    </div>
+                                    <div class="col-4 text-right">Status</div>
+                                    <div class="col-8 mt-1">
+                                        <input type="text" class="form-control p-2"   name = "status" [(ngModel)] = registerData.status required [ngClass]="{'error': isSubmitted&&registrationForm.controls['Status'].invalid }">
+                                    </div>
+
+                                
+                               
+                                
+
+                                
                                 </div>
-                                <div class="col-5">
-                                    <p id="assetCode">{{data.asset_code}}</p>
-                                </div>
-                            </div>
-                            <div class="row col-12 mt-5">
-                                <div class="col-5">
-                                    <div class="fs-1 fw-700 .bold-Segoe float-right">Brand</div>
-                                </div>
-                                <div class="col-5">
-                                    <select class="form-select" >
-                                        <option selected>Select Brand</option>
-                                        <option value="DELL">DELL</option>
-                                        <option value="HP">HP</option>
-                                        <option value="ASUS">ASUS</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row col-12 mt-5">
-                                <div class="col-5">
-                                    <div class="fs-1 fw-700 .bold-Segoe float-right">model</div>
-                                </div>
-                                <div class="col-5">
-                                    <input type="text"  class="form-control" placeholder="{{data.model}}">
-                                </div>
-                            </div>
-                            <div class="row col-12 mt-5">
-                                <div class="col-5">
-                                    <div class="fs-1 fw-700 .bold-Segoe float-right">Serial No</div>
-                                </div>
-                                <div class="col-5">
-                                    <input type="text"  class="form-control" placeholder="{{data.serial}}">
-                                </div>
-                            </div>
-                            <div class="row col-12 mt-5">
-                                <div class="col-5">
-                                    <div class="fs-1 fw-700 .bold-Segoe float-right">Purchase Date</div>
-                                </div>
-                                <div class="col-5">
-                                    <input type="text"  class="form-control" placeholder="{{data.purchae_date}}">
-                                </div>
-                            </div>
-                            <div class="row col-12 mt-5">
-                                <div class="col-5">
-                                    <div class="fs-1 fw-700 .bold-Segoe float-right">Waranty Period</div>
-                                </div>
-                                <div class="col-5">
-                                    <input type="text"  class="form-control" disabled placeholder="{{data.waranty}}">
-                                </div>
-                            </div>
-                            <div class="row col-12 mt-5">
-                                <div class="col-5">
-                                    <div class="fs-1 fw-700 .bold-Segoe float-right">Waranty Remians</div>
-                                </div>
-                                <div class="col-5">
-                                    <p>{{remain_y}} y {{remain_m}} m</p>
-                                </div>
-                            </div>
-                            <div class="row col-12 mt-5">
-                                <div class="col-5">
-                                    <div class="fs-1 fw-700 .bold-Segoe float-right">Status</div>
-                                </div>
-                                <div class="col-5">
-                                    <select class="form-select" >
-                                        <option selected>Select Status</option>
-                                        <option value="active">Active</option>
-                                        <option value="inactive">Inactive</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row col-12 mt-5">
-                                <div class="col-5">
-                                    <div class="fs-1 fw-700 .bold-Segoe float-right">Update Date</div>
-                                </div>
-                                <div class="col-5">
-                                    <p>{{today}}</p>
-                                </div>
-                            </div>
-                            <div class="row col-12 mt-5 justify-content-center">
-                                    <button class="fs-1 fw-700 .bold-Segoe mx-3">Save</button>
+                                <div class="row col-12 mt-5 justify-content-center">
+                                    <button type="submit" class="fs-1 fw-700 .bold-Segoe mx-3">Save</button>
                                     <button class="fs-1 fw-700 .bold-Segoe mx-3">cancle</button>
                                 </div>
-                            </div>
-                           
-                        </div>
+                            </form>
+                       
                     </div>
 
                 </div>
             </div>
         </div>
+    </div>
 
 
         <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
