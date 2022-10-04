@@ -13,13 +13,13 @@ export class NewComponent implements OnInit {
   constructor(private router: Router,private service:NotebooksService) { }
   registerData =  {
     asset_code: '1234',
-    brand:   '',
-    model:   '',
-    serial:  '',
-    status:  '',
+    brand:   'ASUS',
+    model:   'TUF',
+    serial:  'AS21154',
+    status:  'active',
     purchase_date: '',
     warranty_date: '',
-    warranty: '',
+    warranty: '3',
     remark:  '',
   }
   
