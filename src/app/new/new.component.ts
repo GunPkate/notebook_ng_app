@@ -12,6 +12,7 @@ export class NewComponent implements OnInit {
 
   constructor(private router: Router,private service:NotebooksService) { }
   
+  code = ''
   registerData =  {
     asset_code: '',
     brand:   'ASUS',
@@ -29,6 +30,7 @@ export class NewComponent implements OnInit {
     const run_id = this.service.getRunnginID().subscribe(data=>{
       if(data.resultCode == 20000){
         this.registerData.asset_code = data.resultData
+        this.code = data.resultData
       }
     })
     console.log(run_id)
@@ -43,6 +45,7 @@ export class NewComponent implements OnInit {
   }
 
   onClickReset(registrationForm:NgForm):void{
+    registrationForm.value.asset_code = this.code;
     registrationForm.resetForm();
   }
 

@@ -35,7 +35,12 @@
                                     </div>
                                     <div class="col-4 text-right">Brand</div>
                                     <div class="col-8 mt-1">
-                                        <input type="text" class="form-control p-2" name = "brand" [(ngModel)] = registerData.brand required [ngClass]="{'error': isSubmitted&&registrationForm.controls['brand'].invalid }">
+                                        <select type="text" class="form-control p-2" name = "brand" [(ngModel)] = registerData.brand required [ngClass]="{'error': isSubmitted&&registrationForm.controls['brand'].invalid }">
+                                            <option value="ASUS">ASUS</option>
+                                            <option value="HP">HP</option>
+                                            <option value="Dell">Dell</option>
+                                            <option value="Accer">Accer</option>
+                                        </select>        
                                     </div>
                                     <div class="col-4 text-right">Model</div>
                                     <div class="col-8 mt-1">
@@ -75,7 +80,7 @@
                                 </div>
                                 <div class="row col-12 mt-5 justify-content-center">
                                     <button type="submit" class="button btn-primary col-4 mx-3">Save</button>
-                                    <button (click)="onClickReset" class="button btn-dark col-4 mx-3">cancle</button>
+                                    <button (click)="onClickReset(registrationForm)" class="button btn-dark col-4 mx-3">cancle</button>
                                 </div>
                             </form>
                         </div>
