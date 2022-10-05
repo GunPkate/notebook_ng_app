@@ -24,3 +24,9 @@ export interface RequestNotebook{
         purchase_date:string,
         remark:string,}[]
 }
+
+export interface RequestID{
+    resultCode: number,
+    resultDescription: string,
+    resultData: string
+}

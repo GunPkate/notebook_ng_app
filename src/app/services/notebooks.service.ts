@@ -1,4 +1,4 @@
-import { RequestNotebook } from './../models/models';
+import { RequestID, RequestNotebook } from './../models/models';
 import { Notebook } from '../models/models';
 import { Injectable } from '@angular/core';
 import  { HttpClient } from '@angular/common/http';
@@ -16,6 +16,10 @@ export class NotebooksService {
   }
   getAllNotebook(): Observable<RequestNotebook>{
     return this.http.get<RequestNotebook>('http://localhost:300/assets/notebook/getall')
+  }
+
+  getRunnginID():Observable<RequestID>{
+    return this.http.get<RequestID>('http://localhost:300/assets/notebook/getrunningid')
   }
 
   createNotebook(createData:any):Observable<RequestNotebook>{

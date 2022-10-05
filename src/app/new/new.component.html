@@ -29,6 +29,10 @@
                             <form (ngSubmit)="ngSubmit(registrationForm)" #registrationForm="ngForm" >
                                 <div class="row col-10 justify-content-center">
                                     
+                                    <div class="col-4 text-right">Asset code</div>
+                                    <div class="col-8 mt-1">
+                                        <input type="text" disabled class="form-control p-2" name = "asset_code" [(ngModel)] = registerData.asset_code required [ngClass]="{'error': isSubmitted&&registrationForm.controls['asset_code'].invalid }">
+                                    </div>
                                     <div class="col-4 text-right">Brand</div>
                                     <div class="col-8 mt-1">
                                         <input type="text" class="form-control p-2" name = "brand" [(ngModel)] = registerData.brand required [ngClass]="{'error': isSubmitted&&registrationForm.controls['brand'].invalid }">
@@ -63,15 +67,15 @@
                                     <div class="col-4 text-right">Status</div>
                                     <div class="col-8 mt-1">
                                         <select type="text" class="form-control p-2"   name = "status" [(ngModel)] = registerData.status required [ngClass]="{'error': isSubmitted&&registrationForm.controls['Status'].invalid }">
-                                            <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
+                                            <option value="Active">Active</option>
+                                            <option value="Inactive">Inactive</option>
                                         </select>    
                                     </div>
 
                                 </div>
                                 <div class="row col-12 mt-5 justify-content-center">
                                     <button type="submit" class="button btn-primary col-4 mx-3">Save</button>
-                                    <button class="button btn-dark col-4 mx-3">cancle</button>
+                                    <button (click)="onClickReset" class="button btn-dark col-4 mx-3">cancle</button>
                                 </div>
                             </form>
                         </div>

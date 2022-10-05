@@ -11,12 +11,13 @@ import { Component, OnInit } from '@angular/core';
 export class NewComponent implements OnInit {
 
   constructor(private router: Router,private service:NotebooksService) { }
+  
   registerData =  {
-    asset_code: '1234',
+    asset_code: '',
     brand:   'ASUS',
     model:   'TUF',
     serial:  'AS21154',
-    status:  'active',
+    status:  'Active',
     purchase_date: '',
     warranty_date: '',
     warranty: '3',
@@ -25,6 +26,12 @@ export class NewComponent implements OnInit {
   
   isSubmitted = false
   ngOnInit(): void {
+    const run_id = this.service.getRunnginID().subscribe(data=>{
+      if(data.resultCode == 20000){
+        this.registerData.asset_code = data.resultData
+      }
+    })
+    console.log(run_id)
   }
 
   onClickSearch(): void {
@@ -33,6 +40,10 @@ export class NewComponent implements OnInit {
 
   onClickNew(): void{
     this.router.navigate([''])
+  }
+
+  onClickReset(registrationForm:NgForm):void{
+    registrationForm.resetForm();
   }
 
   ngSubmit(registrationForm:NgForm){
