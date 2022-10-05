@@ -21,64 +21,73 @@
 
                     <div class="col-12">
                         <div class="row">
-                            <div class="col-12 text-center Welcome">
+                            <div class="col-12 text-center">
                                 <div class="float-left ">Edit Asset</div>
                             </div>
                         </div>
                  
-                            <form (ngSubmit)="ngSubmit(registrationForm)" #registrationForm="ngForm" >
-                                <div class="row col-10 justify-content-center">
-                                    <div class="col-4 text-right">Asset Code</div>
-                                    <div class="col-8 mt-1">
-                                        <input type="text" class="form-control p-2" disabled  name = "asset_code" [(ngModel)] = registerData.asset_code required [ngClass]="{'error': isSubmitted&&registrationForm.controls['asset_code'].invalid }">
-                                    </div>
-                                    <div class="col-4 text-right">Brand</div>
-                                    <div class="col-8 mt-1">
-                                        <input type="text" class="form-control p-2" name = "brand" [(ngModel)] = registerData.brand required [ngClass]="{'error': isSubmitted&&registrationForm.controls['brand'].invalid }">
-                                    </div>
-                                    <div class="col-4 text-right">Model</div>
-                                    <div class="col-8 mt-1">
-                                        <input type="text" class="form-control p-2"   name = "model" [(ngModel)] = registerData.model required [ngClass]="{'error': isSubmitted&&registrationForm.controls['model'].invalid }">
-                                    </div>
-                                    <div class="col-4 text-right">Serial No</div>
-                                    <div class="col-8 mt-1">
-                                        <input type="text" class="form-control p-2" name = "serial" [(ngModel)] = registerData.serial required [ngClass]="{'error': isSubmitted&&registrationForm.controls['serial'].invalid }">   
-                                    </div>
-                                    <div class="col-4 text-right">Purchase Date</div>
-                                    <div class="col-8 mt-1">
-                                        <input type="text" class="form-control p-2"   name = "purchase_date" [(ngModel)] = registerData.purchase_date required [ngClass]="{'error': isSubmitted&&registrationForm.controls['purchase_date'].invalid }">
-                                    </div>
-                                    <div class="col-4 text-right">Warranty Start</div>
-                                    <div class="col-8 mt-1">
-                                        <input type="text" class="form-control p-2"   name = "warranty_date" [(ngModel)] = registerData.warranty_date required [ngClass]="{'error': isSubmitted&&registrationForm.controls['warranty_date'].invalid }">
-                                    </div>
-                                    <div class="col-4 text-right">Warranty Period</div>
-                                    <div class="col-8 mt-1">
-                                        <select type="text" class="form-control p-2"   name = "warranty" [(ngModel)] = registerData.warranty required [ngClass]="{'error': isSubmitted&&registrationForm.controls['warranty'].invalid }">
-                                            <option value="1">1 Year</option>
-                                            <option value="2">2 Year</option>
-                                            <option value="3">3 Year</option>
-                                            <option value="4">4 Year</option>
-                                            <option value="5">5 Year</option>
-                                        </select>
-                                    </div>
-                                    <div class="col-4 text-right">Warranty Remains</div>
-                                    <div class="col-8 mt-1">
-                                        <p>{{remain_y}} y {{remain_m}} m</p>
-                                    </div>
-                                    <div class="col-4 text-right">Status</div>
-                                    <div class="col-8 mt-1">
-                                        <select type="text" class="form-control p-2"   name = "status" [(ngModel)] = registerData.status required [ngClass]="{'error': isSubmitted&&registrationForm.controls['status'].invalid }">
-                                            <option value="1">Active</option>
-                                            <option value="0">Inactive</option>
-                                        </select>    
-                                    </div>
+                        <form (ngSubmit)="ngSubmit(registrationForm)" #registrationForm="ngForm" >
+                            <div class="row col-10 justify-content-center">
+                                
+                                <div class="col-4 text-right">Asset code</div>
+                                <div class="col-8 mt-1">
+                                    <input type="text" disabled class="form-control p-2" name = "asset_code" [(ngModel)] = registerData.asset_code required [ngClass]="{'error': isSubmitted&&registrationForm.controls['asset_code'].invalid }">
+                                </div>
+                                <div class="col-4 text-right">Brand</div>
+                                <div class="col-8 mt-1">
+                                    <select type="text" class="form-control p-2" name = "brand" [(ngModel)] = registerData.brand required [ngClass]="{'error': isSubmitted&&registrationForm.controls['brand'].invalid }">
+                                        <option value="ASUS">ASUS</option>
+                                        <option value="HP">HP</option>
+                                        <option value="Dell">Dell</option>
+                                        <option value="Accer">Accer</option>
+                                    </select>        
+                                </div>
+                                <div class="col-4 text-right">Model</div>
+                                <div class="col-8 mt-1">
+                                    <input type="text" class="form-control p-2"   name = "model" [(ngModel)] = registerData.model required [ngClass]="{'error': isSubmitted&&registrationForm.controls['model'].invalid }">
+                                </div>
+                                <div class="col-4 text-right">Serial No</div>
+                                <div class="col-8 mt-1">
+                                    <input type="text" class="form-control p-2" name = "serial" [(ngModel)] = registerData.serial required [ngClass]="{'error': isSubmitted&&registrationForm.controls['serial'].invalid }">   
+                                </div>
+                                <div class="col-4 text-right">Purchase Date</div>
+                                <div class="col-8 mt-1">
+                                    <!-- <input type="text" class="form-control p-2"   name = "mobile" [(ngModel)] = registerData.mobile required [ngClass]="{'error': isSubmitted&&registrationForm.controls['mobile'].invalid }"> -->
+                                    <input type="date" class="form-control p-2"   name = "purchase_date" [(ngModel)] = registerData.purchase_date required [ngClass]="{'error': isSubmitted&&registrationForm.controls['purchase_date'].invalid }">
+                                </div>
+                                <div class="col-4 text-right">Warranty Start</div>
+                                <div class="col-8 mt-1">
+                                    <input type="date" class="form-control p-2"   name = "warranty_date" [(ngModel)] = registerData.warranty_date required [ngClass]="{'error': isSubmitted&&registrationForm.controls['warranty_date'].invalid }">
+                                </div>
+                                <div class="col-4 text-right">Warranty Period</div>
+                                <div class="col-8 mt-1">
+                                    <select type="number" class="form-control p-2"   name = "warranty" [(ngModel)] = registerData.warranty required [ngClass]="{'error': isSubmitted&&registrationForm.controls['warranty'].invalid }">
+                                        <option value="1">1 Year</option>
+                                        <option value="2">2 Year</option>
+                                        <option value="3">3 Year</option>
+                                        <option value="4">4 Year</option>
+                                        <option value="5">5 Year</option>
+                                    </select>
+                                </div>
+                                <div class="col-4 text-right">Status</div>
+                                <div class="col-8 mt-1">
+                                    <select type="text" class="form-control p-2"   name = "status" [(ngModel)] = registerData.status required [ngClass]="{'error': isSubmitted&&registrationForm.controls['status'].invalid }">
+                                        <option value="Active">Active</option>
+                                        <option value="Inactive">Inactive</option>
+                                    </select>    
+                                </div>
+                                <div class="col-4 text-right">Warranty Remains</div>
+                                <div class="col-8 mt-1">
+                                    <p>{{remain_y}} y {{remain_m}} m</p>
+                                </div>
+                            </div>
 
-                                </div>
-                                <div class="row col-12 mt-5 justify-content-center">
-                                    <button type="submit" class="col-5 btn-primary button">Update</button>
-                                </div>
-                            </form>
+                            <div class="row col-12 mt-5 justify-content-center">
+                                <button type="submit" class="button btn-primary col-4 mx-3">Save</button>
+                                <button (click)="onClickReset(registrationForm)" class="button btn-dark col-4 mx-3">cancle</button>
+                            </div>
+
+                        </form>
                        
                     </div>
 

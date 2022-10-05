@@ -2,6 +2,7 @@ import { NotebooksService } from './../services/notebooks.service';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new',
@@ -55,10 +56,16 @@ export class NewComponent implements OnInit {
     console.log(this.registerData.purchase_date)
     if(registrationForm.valid){
       this.isSubmitted = true
-      alert("success")
       this.service.createNotebook(this.registerData).subscribe(data=>{
         if(data.resultCode !== 40900){
-          console.log("data")
+          console.log("data")   
+          Swal.fire({
+            // position: 'top-end',
+            icon: 'success',
+            title: 'Your data has been saved',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
       })
     }else{

@@ -22,7 +22,8 @@ export class EditComponent implements OnInit {
     warranty_date: '',
     warranty: '',
     remark:  '',
-  }  
+  }
+  code = 0
   remain_m: number|0 = 0
   remain_y: number|0 = 0
   today: Date = new Date(Date.now()) 
@@ -51,9 +52,11 @@ export class EditComponent implements OnInit {
       warranty_date: this.notebook_data.warranty_date,
       warranty: this.notebook_data.warranty,
       remark:  this.notebook_data.remark,
-    } 
+    }
+    this.code = this.notebook_data.asset_code
     
     console.log(this.registerData,"form")
+    
   }
 
   calWarrant(purchase_date:string,warranty:Number){
@@ -74,6 +77,11 @@ export class EditComponent implements OnInit {
 
   onClickNew(): void{
     this.router.navigate([''])
+  }
+
+  onClickReset(registrationForm:NgForm):void{
+    registrationForm.value.asset_code = this.code;
+    registrationForm.resetForm();
   }
 
   ngSubmit(registrationForm: NgForm) : void{

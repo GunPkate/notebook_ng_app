@@ -19,42 +19,51 @@
             <div class="col-lg-10">
                 <div class="row justify-content-center">   
                     <div class="col-12">
-                        <div class="row">
-                            <div class=" float-left ">Search Asset</div>
-                        </div>
-                        <div class="row mt-4">
-                                <div class="col-2">
-                                    <div class="fs-1  float-right">Brand</div>
-                                </div>
-                                <div class="col-3">
-                                    <input type="text"  class="form-control" placeholder="">
-                                </div>
-                                <div class="col-2">
+                        
+                        <form (ngSubmit)="ngSubmit(registrationForm)" #registrationForm="ngForm" >
+                                <div class="row mt-4">
+                                    <div class="col-2">
+                                        <div class="fs-1  float-right">Brand</div>
+                                    </div>
+                                    <div class="col-3">
+                                    <select type="text" class="form-control p-2" name = "brand" [(ngModel)] = registerData.brand>
+                                        <option value="ASUS">ASUS</option>
+                                        <option value="HP">HP</option>
+                                        <option value="Dell">Dell</option>
+                                        <option value="Accer">Accer</option>
+                                    </select>   
+                                    </div>     
+                                
                                     <div class="fs-1  float-right">Model</div>
+                                    <div class="col-3 mt-1">
+                                        <input type="text" class="form-control p-2"   name = "model" [(ngModel)] = registerData.model>
+                                    </div>
                                 </div>
-                                <div class="col-3">
-                                    <input type="text"  class="form-control" placeholder="">
-                                </div>
-                        </div>
-                        <div class="row mt-4">
-                                <div class="col-2">
-                                    <div class="fs-1  float-right">Serial No</div>
-                                </div>
-                                <div class="col-3">
-                                    <input type="text"  class="form-control" placeholder="">
-                                </div>
-                                <div class="col-2">
+                                <div class="row mt-4">
+                                    <div class="col-2">
+                                        <div class="fs-1  float-right">Serial</div>
+                                    </div>
+                                    <div class="col-3 ">
+                                    <input type="text" class="form-control p-2" name = "serial" [(ngModel)] = registerData.serial>
+     
+                                    </div>     
+                                
                                     <div class="fs-1  float-right">Status</div>
+                                    <div class="col-3 mt-1">
+                                        <select type="text" class="form-control p-2"   name = "status" [(ngModel)] = registerData.status>
+                                            <option value="Active">Active</option>
+                                            <option value="Inactive">Inactive</option>
+                                        </select>    
+                                        </div>
                                 </div>
-                                <div class="col-3">
-                                    <input type="text"  class="form-control" placeholder="">
-                                </div>
-                        </div>
 
-                        <div class="row col-12 mt-5 justify-content-center">
-                            <button class="col-4 button btn-primary mx-3">Save</button>
-                            <button class="col-4 button btn-dark mx-3">Cancle</button>
-                        </div>
+
+                            <div class="row col-12 mt-5 justify-content-center">
+                                <button type="submit" class="button btn-primary col-4 mx-3">Search</button>
+                                <button (click)="onClickReset(registrationForm)" class="button btn-dark col-4 mx-3">cancle</button>
+                            </div>
+
+                        </form>
                     </div>
                     
                     <div class="row col-12 text-center mt-5 mx-2 ">

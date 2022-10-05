@@ -2,6 +2,7 @@ import { NotebooksService } from './../services/notebooks.service';
 import { Notebook } from './../models/models';
 import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-search',
@@ -9,6 +10,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
+
+  registerData =  {
+    brand:   'ASUS',
+    model:   'TUF',
+    serial:  'AS21154',
+    status:  'Active',
+  }
 
   notebooks: Notebook[] = []
   constructor(private router:Router, private service:NotebooksService) { }
@@ -39,11 +47,19 @@ export class SearchComponent implements OnInit {
     this.router.navigate([''])
   }
 
+  onClickReset(registrationForm:NgForm):void{
+    registrationForm.resetForm();
+  }
+
   onClickEdit(notebook: Notebook): void{
     this.router.navigate(['edit'],{state:notebook})
   }
 
   onClickDelete(selected: string): void{
     this.service.deleteNotebook(selected);
+  }
+
+  ngSubmit(registrationForm:NgForm){
+    
   }
 }
