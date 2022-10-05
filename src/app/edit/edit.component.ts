@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { Notebook } from '../models/models';
 import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit',
@@ -84,13 +85,23 @@ export class EditComponent implements OnInit {
     console.log(registrationForm)
     console.log(this.registerData )
     if(registrationForm.invalid) {
-      alert('Register fail');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+      })
       return 
     }
     else {
-      this.service.updateNotebook(this.registerData).subscribe(data=>{
+      this.service.updateNotebook(registrationForm).subscribe(data=>{
         if(data.resultCode !== 40900){
-          alert('Register Success');
+          Swal.fire({
+            // position: 'top-end',
+            icon: 'success',
+            title: 'Your data has been updated',
+            showConfirmButton: false,
+            timer: 1500
+          })
         }
         console.log(data)
       })

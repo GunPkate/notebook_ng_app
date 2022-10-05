@@ -69,7 +69,11 @@ export class NewComponent implements OnInit {
         }
       })
     }else{
-      alert("fail")
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+      })
     }
   }
 }
