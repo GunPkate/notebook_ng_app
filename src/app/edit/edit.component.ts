@@ -31,11 +31,7 @@ export class EditComponent implements OnInit {
 
   constructor(private router:Router,private service:NotebooksService) { 
     const nav = this.router.getCurrentNavigation()
-    
-      console.log(nav)
-      console.log(nav==undefined)
-      console.log(nav)
-      this.notebook_data = nav?.extras.state; //data binding at html
+          this.notebook_data = nav?.extras.state; //data binding at html
       if(this.notebook_data !==undefined||null){
       this.calWarrant(this.notebook_data.purchase_date,this.notebook_data.warranty)
       }
@@ -55,7 +51,6 @@ export class EditComponent implements OnInit {
     }
     this.code = this.notebook_data.asset_code
     
-    console.log(this.registerData,"form")
     
   }
 
