@@ -47,6 +47,7 @@ export class NewComponent implements OnInit {
   }
 
   ngSubmit(registrationForm:NgForm){
+    this.isSubmitted = true
     console.log(this.registerData)
     console.log(this.registerData.purchase_date)
     if(registrationForm.valid){
