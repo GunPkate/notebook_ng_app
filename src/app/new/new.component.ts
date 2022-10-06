@@ -57,14 +57,20 @@ export class NewComponent implements OnInit {
     if(registrationForm.valid){
       this.isSubmitted = true
       this.service.createNotebook(this.registerData).subscribe(data=>{
-        if(data.resultCode !== 40900){
-          console.log("data")   
+        if(data.resultCode === 20000){
+          console.log("data",data.resultCode)   
           Swal.fire({
             // position: 'top-end',
             icon: 'success',
             title: 'Your data has been saved',
             showConfirmButton: false,
             timer: 1500
+          })
+        }else{
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Duplicated',
           })
         }
       })

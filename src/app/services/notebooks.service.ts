@@ -40,9 +40,9 @@ export class NotebooksService {
     return this.http.put<RequestNotebook>('http://localhost:300/assets/notebook/update',body)
   }
 
-  deleteNotebook(asset_code: string): any{
+  deleteNotebook(asset_code: any): Observable<RequestNotebook>{
     const body = {"asset_code":asset_code}
-    return this.http.delete<RequestNotebook>('http://localhost:300/assets/notebook/delete/',{body:{asset_code:asset_code}})
+    return this.http.post<RequestNotebook>('http://localhost:300/assets/notebook/delete',body)
     // return this.http.request('delete','http://localhost:300/assets/notebook/delete',)
   // }
   }

@@ -56,7 +56,10 @@ export class SearchComponent implements OnInit {
   }
 
   onClickDelete(selected: string): void{
-    this.service.deleteNotebook(selected);
+    this.service.deleteNotebook(selected).subscribe((data)=>{
+      console.log(data.resultCode);
+      if(data.resultCode === 20000) window.location.reload()
+    });
   }
 
   ngSubmit(registrationForm:NgForm){
